@@ -123,9 +123,32 @@ export function initializeNodeExportUI() {
       sortGroupsContainer.appendChild(groupDiv);
     }
 
-    // Add event listener for range checkbox
+    // Add event listeners for smart range handling
     const rangeCheckbox = groupDiv.querySelector(".range-checkbox") as HTMLInputElement;
     const rangeInputs = groupDiv.querySelector(".range-inputs") as HTMLDivElement;
+    const prefixInput = groupDiv.querySelector(".prefix-input") as HTMLInputElement;
+    const rangeLabel = rangeCheckbox?.parentElement as HTMLLabelElement;
+    
+    // Function to determine if pattern needs range
+    const updateRangeVisibility = () => {
+      const pattern = prefixInput.value.trim();
+      const needsRange = isGridPattern(pattern);
+      
+      if (needsRange) {
+        rangeLabel.style.display = 'block';
+        rangeInputs.style.display = rangeCheckbox.checked ? "grid" : "none";
+      } else {
+        rangeLabel.style.display = 'none';
+        rangeInputs.style.display = 'none';
+        rangeCheckbox.checked = false;
+      }
+    };
+    
+    // Initial check
+    updateRangeVisibility();
+    
+    // Listen for pattern changes
+    prefixInput.addEventListener('input', updateRangeVisibility);
     
     rangeCheckbox.onchange = () => {
       rangeInputs.style.display = rangeCheckbox.checked ? "grid" : "none";
@@ -323,6 +346,22 @@ export function initializeNodeExportUI() {
     element.textContent = message;
     element.style.color = type === 'success' ? 'var(--accent-color)' : 
                          type === 'error' ? '#ff4444' : '#ffaa00';
+  }
+
+  // Helper function to detect if pattern needs range
+  function isGridPattern(pattern: string): boolean {
+    // Grid patterns typically contain row/col references
+    const gridIndicators = [
+      /Row_.*Col_/i,          // Row_X_Col_Y patterns
+      /\d+.*\d+/,             // Multiple numeric placeholders
+      /_\\d\+.*_\\d\+/,       // Multiple regex digit patterns
+      /Col.*Row/i,            // Col_X_Row_Y patterns
+      /Grid/i,                // Explicit grid naming
+      /Table.*Cell/i,         // Table cell patterns
+      /Cell_\\d/i             // Cell patterns
+    ];
+    
+    return gridIndicators.some(regex => regex.test(pattern));
   }
 
   // Make removeSortGroup available globally

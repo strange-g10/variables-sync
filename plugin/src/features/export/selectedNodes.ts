@@ -26,9 +26,25 @@ function collectSortedNodes(
   rootPattern: string, 
   sortGroups: SortGroup[]
 ): { [rootName: string]: { type: string; nodes: CollectedNode[] } } {
+  // Early return if no sort groups - nothing to filter
+  if (!sortGroups || sortGroups.length === 0) {
+    logToUI("No sort groups provided - returning empty result");
+    return {};
+  }
+
   const rootRegex = new RegExp(rootPattern);
   const nodeDict: { [rootName: string]: Map<string, CollectedNode> } = {}; // Use Map to prevent duplicates
   const result: { [rootName: string]: { type: string; nodes: CollectedNode[] } } = {};
+
+  // Filter out empty/invalid sort groups
+  const validSortGroups = sortGroups.filter(group => group.prefix && group.prefix.trim() !== '');
+  
+  if (validSortGroups.length === 0) {
+    logToUI("No valid sort groups found - returning empty result");
+    return {};
+  }
+
+  logToUI(`Processing with ${validSortGroups.length} valid sort groups`);
 
   function traverse(node: SceneNode, currentRoot?: string) {
     const name = node.name;
@@ -50,7 +66,7 @@ function collectSortedNodes(
 
         // Check if child matches any sort group prefix (but only add once)
         let matchedAnyGroup = false;
-        for (const group of sortGroups) {
+        for (const group of validSortGroups) {
           const prefixRegex = new RegExp(group.prefix);
           if (prefixRegex.test(childName) && !matchedAnyGroup) {
             if (!nodeDict[currentRoot]) {
@@ -83,13 +99,13 @@ function collectSortedNodes(
 
   traverse(node);
 
-  // Sort nodes for each root based on sort groups
+  // Sort nodes for each root based on valid sort groups only
   for (const [root, nodesMap] of Object.entries(nodeDict)) {
     const sortedNodes: CollectedNode[] = [];
     const processedNodeIds = new Set<string>(); // Track processed nodes to prevent duplicates
     const nodesArray = Array.from(nodesMap.values()); // Convert Map to Array
     
-    for (const group of sortGroups) {
+    for (const group of validSortGroups) {
       if (group.range) {
         // Handle range-based sorting
         const { rows, cols } = group.range;
