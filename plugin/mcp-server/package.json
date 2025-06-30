@@ -1,0 +1,36 @@
+{
+  "name": "figma-variables-sync-mcp",
+  "version": "1.0.0",
+  "description": "MCP Server for Figma Variables Sync integration with Claude Desktop",
+  "main": "dist/index.js",
+  "bin": {
+    "figma-variables-sync-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node index.ts",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "figma", 
+    "variables",
+    "design-tokens",
+    "claude"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.13.2",
+    "zod": "^3.25.67"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.8.3",
+    "ts-node": "^10.9.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

@@ -1,6 +1,8 @@
 import { config } from "../../config";
-import { logToUI } from "../../utils/log";
-import { updateProgress } from "../../utils/progress";
+import { logToUI, updateProgress, ProgressData } from "../../utils/ui";
+import { quotaManager } from "../../utils/quotaManager";
+import { performanceOptimizer } from "../../utils/performanceOptimizer";
+import { withErrorHandling, ImportError } from "../../utils/errorHandler";
 import { fetchSheetMetadata, fetchSheetData } from "./fetch";
 import { parseColor, toHexColor, areRGBAsEqual } from "../../utils/color";
 

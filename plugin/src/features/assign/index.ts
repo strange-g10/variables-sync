@@ -1,6 +1,7 @@
 import { config } from "../../config";
 import { logToUI } from "../../utils/log";
-import { updateProgress } from "../../utils/progress";
+import { quotaManager } from "../../utils/quotaManager";
+import { performanceOptimizer } from "../../utils/performanceOptimizer";
 
 interface Binding {
   variableId: string;

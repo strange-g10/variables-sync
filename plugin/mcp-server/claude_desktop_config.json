@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "figma-variables-sync": {
+      "command": "node",
+      "args": ["/Users/trangpham/Documents/variables-sync-main/plugin/mcp-server/dist/index.js"],
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  }
+}

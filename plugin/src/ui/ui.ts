@@ -1,12 +1,8 @@
 console.log("ui.ts loaded immediately");
 
 import "./styles/main.css";
-import { initializeSectionManager } from "./components/sectionManager";
-import { initializeExportUI } from "./components/exportUI";
-import { initializeImportUI } from "./components/importUI";
-import { initializeAssignUI } from "./components/assignUI";
-import { initializeLogProgressUI } from "./components/logProgressUI";
-import { handleMessages } from "./messageHandler";
+import { initializeSectionManager, initializeExportUI, initializeImportUI, initializeAssignUI, initializeLogProgressUI } from "./components";
+import { handleMessages } from "../utils/messageHandler";
 
 function initializeUI() {
   console.log("initializeUI called");

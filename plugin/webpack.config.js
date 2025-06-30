@@ -1,6 +1,8 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const InlineChunkHtmlPlugin = require("inline-chunk-html-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+const isProduction = process.env.NODE_ENV === "production";
 
 module.exports = {
   entry: {
@@ -10,41 +12,94 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].js",
+    clean: true,
   },
   module: {
     rules: [
       {
         test: /\.ts$/,
-        use: "ts-loader",
+        use: {
+          loader: "ts-loader",
+          options: {
+            transpileOnly: !isProduction,
+          },
+        },
         exclude: /node_modules/,
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        use: [
+          isProduction ? MiniCssExtractPlugin.loader : "style-loader",
+          "css-loader",
+        ],
         exclude: /node_modules/,
       },
       {
         test: /\.scss$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        use: [
+          isProduction ? MiniCssExtractPlugin.loader : "style-loader",
+          "css-loader",
+          "sass-loader",
+        ],
         exclude: /node_modules/,
       },
     ],
   },
   resolve: {
     extensions: [".ts", ".js", ".css", ".scss"],
+    alias: {
+      "@": path.resolve(__dirname, "src"),
+      "@utils": path.resolve(__dirname, "src/utils"),
+      "@features": path.resolve(__dirname, "src/features"),
+      "@ui": path.resolve(__dirname, "src/ui"),
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/ui/ui.html",
       filename: "ui.html",
       chunks: ["ui"],
-      inlineSource: /\.(js|css)$/,
+      inject: "body",
+      minify: isProduction ? {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+        removeEmptyAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        keepClosingSlash: true,
+        minifyJS: true,
+        minifyCSS: true,
+        minifyURLs: true,
+      } : false,
     }),
-    new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/\.(js|css)$/]),
+    ...(isProduction
+      ? [
+          new MiniCssExtractPlugin({
+            filename: "[name].css",
+          }),
+        ]
+      : []),
   ],
-  mode: process.env.NODE_ENV === "development" ? "development" : "production",
-  devtool: process.env.NODE_ENV === "development" ? "source-map" : false,
+  mode: isProduction ? "production" : "development",
+  devtool: isProduction ? false : "eval-source-map",
+  optimization: {
+    splitChunks: {
+      chunks: "all",
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendors",
+          chunks: "all",
+        },
+      },
+    },
+  },
   stats: {
     errorDetails: true,
+    warnings: false,
+  },
+  performance: {
+    hints: false,
   },
 };

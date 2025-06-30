@@ -1,5 +1,7 @@
 import { logToUI } from "../../utils/log";
 import { toHexColor } from "../../utils/color";
+import { quotaManager } from "../../utils/quotaManager";
+import { performanceOptimizer } from "../../utils/performanceOptimizer";
 
 export async function exportFull(collection?: string) {
   try {
