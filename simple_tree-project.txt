@@ -1,0 +1,36 @@
+root\
+    └── plugin\
+        ├── .env
+        ├── dist\
+        │   ├── code.js
+        │   ├── ui.html
+        │   └── ui.js
+        ├── manifest.json
+        ├── ode_modules\
+        ├── package-lock.json
+        ├── package.json
+        ├── project_structure.txt
+        ├── src\
+        │   ├── assign.ts
+        │   ├── clear.ts
+        │   ├── code.ts
+        │   ├── export.ts
+        │   ├── import.ts
+        │   ├── types.ts
+        │   ├── ui\
+        │   │   ├── components\
+        │   │   │   ├── assignUI.ts
+        │   │   │   ├── exportUI.ts
+        │   │   │   ├── importUI.ts
+        │   │   │   ├── logProgressUI.ts
+        │   │   │   └── sectionManager.ts
+        │   │   ├── messageHandler.ts
+        │   │   ├── styles\
+        │   │   │   └── main.css
+        │   │   ├── ui.html
+        │   │   ├── ui.ts
+        │   │   └── utils\
+        │   │       └── googleSheets.ts
+        │   └── utils.ts
+        ├── tsconfig.json
+        └── webpack.config.js

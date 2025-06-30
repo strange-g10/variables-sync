@@ -1,0 +1,10 @@
+{
+  "spreadsheet_id": "1PduyNWqDg2O-MhYuPmZYzUWuFv9vlf_uUDI49wcT_dE",
+  "sheet_name": "Assign Layers",
+  "service_account_file": "./credentials.json",
+  "variable_file": "local_data/KV Desktop Component UI Kit_Data Content_full.json",
+  "layer_file": "processed_data/node_ids_mapping.json",
+  "naming_config_file": "config/naming_config.json",
+  "log_file": "mapping_log.txt",
+  "figma_token": "your_figma_token_here"
+}

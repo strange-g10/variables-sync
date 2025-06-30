@@ -1,0 +1,8 @@
+{
+    "figma_token": "your_figma_token_here",
+    "file_keys": ["DtARqKAHRvv21xSHHheyui","E0tCR1VzvMaKZ5oJSjEedM","o7HxZpcvimHyFNNoKuSVfH","5mFBT1l0wmNjeYzRUkpr1I","TYG7BULIzgT3CbmCFkIlW3","0piECsEWpzN7s92khpsQHw", "xIKdgiwmqB4qKESuKtOGAa"],
+    "raw_data_dir": "./raw_data/",
+    "max_requests_per_minute": 60,
+    "timeout": 30,
+    "retry_delay": 5
+  }

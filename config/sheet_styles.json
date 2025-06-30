@@ -1,0 +1,13 @@
+{
+    "variables": {
+      "row_height": 30,
+      "column_a_width": 150,
+      "column_b_width": 100,
+      "mode_column_width": 200,
+      "id_column_width": 200,
+      "key_column_width": 200,
+      "even_row_color": [240, 240, 240],
+      "odd_row_color": [255, 255, 255],
+      "ellipse": true
+    }
+  }

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+  <div class="tab-container">
+    <div class="tab-headers">
+      <button class="tab-header active" data-tab="export">Export</button>
+      <button class="tab-header" data-tab="import">Import</button>
+      <button class="tab-header" data-tab="assign">Assign</button>
+    </div>
+    <div class="tab-content" id="tab-content">
+      <div id="export-tab" class="tab-pane">
+        <select id="collection-select"></select>
+        <button id="export-full">Export Full</button>
+        <button id="export-ids">Export IDs</button>
+        <button id="clear-collections">Clear Collections</button>
+      </div>
+      <div id="import-tab" class="tab-pane">
+        <input id="sheet-link" type="text" placeholder="Google Sheet URL">
+        <button id="fetch-sheets">Fetch Sheet List</button>
+        <button id="import" disabled>Import</button>
+        <button id="cancel-import" style="display: none;">Cancel</button>
+        <div id="sheet-list-container" style="margin-top:10px; display:none;">
+          <label><b>Exclude sheets from import:</b></label>
+          <div id="sheet-list"></div>
+        </div>
+      </div>
+      <div id="assign-tab" class="tab-pane">
+        <input id="assign-sheet-link" type="text" placeholder="Google Sheet URL">
+        <select id="sheet-select" disabled></select>
+        <button id="assign" disabled>Assign Variables</button>
+        <button id="force-assign" disabled>Force Assign All</button>
+      </div>
+    </div>
+  </div>
+  <button id="toggle-log">Show Log</button>
+  <button id="export-log">Export Log</button>
+  <textarea id="log" readonly></textarea>
+  <div id="progress">
+    <div id="progress-bar-container">
+      <div id="progress-bar"></div>
+    </div>
+    <span id="progress-text"></span>
+  </div>
+  <script src="./ui.js"></script>
+  <script>console.log("Inline script loaded");</script>
+</body>
+</html>

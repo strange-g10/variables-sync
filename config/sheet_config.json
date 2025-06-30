@@ -1,0 +1,22 @@
+{
+    "scenarios": {
+        "Role Importer": [
+            {
+                "collect_spreadsheet": "1sP7wM7gReWC1Dh5vd2ssyVPybFuTixq2rLaUAT7BvZk",
+                "collect_sheet": "Table Role",
+                "mode_name": {
+                    "VN": {
+                        "first_cell": "B1",
+                        "last_cell": "I365"
+                    },
+                    "EN": {
+                        "first_cell": "O1",
+                        "last_cell": "V365"
+                    }
+                },
+                "collection_name": "Role Importer"
+            }
+        ]
+    },
+    "credentials_file": "./credentials.json"
+}

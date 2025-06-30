@@ -1,0 +1,224 @@
+{
+    "name": "root",
+    "type": "folder",
+    "relative_path": ".",
+    "children": [
+        {
+            "name": "plugin",
+            "type": "folder",
+            "relative_path": "plugin",
+            "children": [
+                {
+                    "name": ".env",
+                    "type": "file",
+                    "relative_path": "plugin\\.env",
+                    "children": []
+                },
+                {
+                    "name": "dist",
+                    "type": "folder",
+                    "relative_path": "plugin\\dist",
+                    "children": [
+                        {
+                            "name": "code.js",
+                            "type": "file",
+                            "relative_path": "plugin\\dist\\code.js",
+                            "children": []
+                        },
+                        {
+                            "name": "ui.html",
+                            "type": "file",
+                            "relative_path": "plugin\\dist\\ui.html",
+                            "children": []
+                        },
+                        {
+                            "name": "ui.js",
+                            "type": "file",
+                            "relative_path": "plugin\\dist\\ui.js",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "manifest.json",
+                    "type": "file",
+                    "relative_path": "plugin\\manifest.json",
+                    "children": []
+                },
+                {
+                    "name": "ode_modules",
+                    "type": "folder",
+                    "relative_path": "plugin\\ode_modules",
+                    "children": []
+                },
+                {
+                    "name": "package-lock.json",
+                    "type": "file",
+                    "relative_path": "plugin\\package-lock.json",
+                    "children": []
+                },
+                {
+                    "name": "package.json",
+                    "type": "file",
+                    "relative_path": "plugin\\package.json",
+                    "children": []
+                },
+                {
+                    "name": "project_structure.txt",
+                    "type": "file",
+                    "relative_path": "plugin\\project_structure.txt",
+                    "children": []
+                },
+                {
+                    "name": "src",
+                    "type": "folder",
+                    "relative_path": "plugin\\src",
+                    "children": [
+                        {
+                            "name": "assign.ts",
+                            "type": "file",
+                            "relative_path": "plugin\\src\\assign.ts",
+                            "children": []
+                        },
+                        {
+                            "name": "clear.ts",
+                            "type": "file",
+                            "relative_path": "plugin\\src\\clear.ts",
+                            "children": []
+                        },
+                        {
+                            "name": "code.ts",
+                            "type": "file",
+                            "relative_path": "plugin\\src\\code.ts",
+                            "children": []
+                        },
+                        {
+                            "name": "export.ts",
+                            "type": "file",
+                            "relative_path": "plugin\\src\\export.ts",
+                            "children": []
+                        },
+                        {
+                            "name": "import.ts",
+                            "type": "file",
+                            "relative_path": "plugin\\src\\import.ts",
+                            "children": []
+                        },
+                        {
+                            "name": "types.ts",
+                            "type": "file",
+                            "relative_path": "plugin\\src\\types.ts",
+                            "children": []
+                        },
+                        {
+                            "name": "ui",
+                            "type": "folder",
+                            "relative_path": "plugin\\src\\ui",
+                            "children": [
+                                {
+                                    "name": "components",
+                                    "type": "folder",
+                                    "relative_path": "plugin\\src\\ui\\components",
+                                    "children": [
+                                        {
+                                            "name": "assignUI.ts",
+                                            "type": "file",
+                                            "relative_path": "plugin\\src\\ui\\components\\assignUI.ts",
+                                            "children": []
+                                        },
+                                        {
+                                            "name": "exportUI.ts",
+                                            "type": "file",
+                                            "relative_path": "plugin\\src\\ui\\components\\exportUI.ts",
+                                            "children": []
+                                        },
+                                        {
+                                            "name": "importUI.ts",
+                                            "type": "file",
+                                            "relative_path": "plugin\\src\\ui\\components\\importUI.ts",
+                                            "children": []
+                                        },
+                                        {
+                                            "name": "logProgressUI.ts",
+                                            "type": "file",
+                                            "relative_path": "plugin\\src\\ui\\components\\logProgressUI.ts",
+                                            "children": []
+                                        },
+                                        {
+                                            "name": "sectionManager.ts",
+                                            "type": "file",
+                                            "relative_path": "plugin\\src\\ui\\components\\sectionManager.ts",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "messageHandler.ts",
+                                    "type": "file",
+                                    "relative_path": "plugin\\src\\ui\\messageHandler.ts",
+                                    "children": []
+                                },
+                                {
+                                    "name": "styles",
+                                    "type": "folder",
+                                    "relative_path": "plugin\\src\\ui\\styles",
+                                    "children": [
+                                        {
+                                            "name": "main.css",
+                                            "type": "file",
+                                            "relative_path": "plugin\\src\\ui\\styles\\main.css",
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "ui.html",
+                                    "type": "file",
+                                    "relative_path": "plugin\\src\\ui\\ui.html",
+                                    "children": []
+                                },
+                                {
+                                    "name": "ui.ts",
+                                    "type": "file",
+                                    "relative_path": "plugin\\src\\ui\\ui.ts",
+                                    "children": []
+                                },
+                                {
+                                    "name": "utils",
+                                    "type": "folder",
+                                    "relative_path": "plugin\\src\\ui\\utils",
+                                    "children": [
+                                        {
+                                            "name": "googleSheets.ts",
+                                            "type": "file",
+                                            "relative_path": "plugin\\src\\ui\\utils\\googleSheets.ts",
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "utils.ts",
+                            "type": "file",
+                            "relative_path": "plugin\\src\\utils.ts",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "tsconfig.json",
+                    "type": "file",
+                    "relative_path": "plugin\\tsconfig.json",
+                    "children": []
+                },
+                {
+                    "name": "webpack.config.js",
+                    "type": "file",
+                    "relative_path": "plugin\\webpack.config.js",
+                    "children": []
+                }
+            ]
+        }
+    ]
+}

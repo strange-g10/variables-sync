@@ -1,0 +1,28 @@
+2025-06-27 10:50:38,555 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-06-27 10:50:38,557 - INFO - \u0110\u1ecdc d\u1eef li\u1ec7u t\u1eeb các file JSON
+2025-06-27 10:50:38,558 - INFO - C\u1ea5u trúc variable_data: <class 'dict'>
+2025-06-27 10:50:38,559 - INFO - T\u1ed5ng s\u1ed1 variables: 18
+2025-06-27 10:50:38,559 - INFO - B\u1eaft \u0111\u1ea7u mapping variables v\u1edbi layers
+2025-06-27 10:50:38,559 - INFO - S\u1ed1 l\u01b0\u1ee3ng block \u0111\u01b0\u1ee3c map: 3
+2025-06-27 10:50:38,559 - INFO - Block Block-1: 2 node \u0111\u01b0\u1ee3c map
+2025-06-27 10:50:38,559 - INFO - Block Block-2: 9 node \u0111\u01b0\u1ee3c map
+2025-06-27 10:50:38,559 - INFO - Block Block-3: 6 node \u0111\u01b0\u1ee3c map
+2025-06-27 10:50:38,559 - INFO - T\u1ed5ng s\u1ed1 node \u0111\u01b0\u1ee3c map: 17
+2025-06-27 10:50:38,560 - INFO - Ki\u1ec3m tra sheet: Assign Layers
+2025-06-27 10:50:40,046 - INFO - Ghi d\u1eef li\u1ec7u lên sheet: Assign Layers
+2025-06-27 10:50:40,443 - INFO - Hoàn t\u1ea5t mapping và ghi lên Google Sheet. T\u1ed5ng s\u1ed1 variables \u0111\u01b0\u1ee3c ghi: 17
+2025-06-27 11:25:57,758 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-06-27 11:25:57,761 - INFO - \u0110\u1ecdc d\u1eef li\u1ec7u t\u1eeb các file JSON
+2025-06-27 11:25:57,762 - INFO - C\u1ea5u trúc variable_data: <class 'dict'>
+2025-06-27 11:25:57,762 - INFO - T\u1ed5ng s\u1ed1 variables: 52
+2025-06-27 11:25:57,762 - INFO - B\u1eaft \u0111\u1ea7u mapping variables v\u1edbi layers
+2025-06-27 11:25:57,763 - INFO - S\u1ed1 l\u01b0\u1ee3ng block \u0111\u01b0\u1ee3c map: 5
+2025-06-27 11:25:57,763 - INFO - Block Block-1: 2 node \u0111\u01b0\u1ee3c map
+2025-06-27 11:25:57,763 - INFO - Block Block-2: 9 node \u0111\u01b0\u1ee3c map
+2025-06-27 11:25:57,763 - INFO - Block Block-3: 6 node \u0111\u01b0\u1ee3c map
+2025-06-27 11:25:57,763 - INFO - Block Block-4: 2 node \u0111\u01b0\u1ee3c map
+2025-06-27 11:25:57,763 - INFO - Block Block-5: 32 node \u0111\u01b0\u1ee3c map
+2025-06-27 11:25:57,763 - INFO - T\u1ed5ng s\u1ed1 node \u0111\u01b0\u1ee3c map: 51
+2025-06-27 11:25:57,764 - INFO - Ki\u1ec3m tra sheet: Assign Layers
+2025-06-27 11:25:59,769 - INFO - Ghi d\u1eef li\u1ec7u lên sheet: Assign Layers
+2025-06-27 11:26:00,281 - INFO - Hoàn t\u1ea5t mapping và ghi lên Google Sheet. T\u1ed5ng s\u1ed1 variables \u0111\u01b0\u1ee3c ghi: 51

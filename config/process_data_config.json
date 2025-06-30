@@ -1,0 +1,14 @@
+{
+    "spreadsheets": [
+      {"id": "1R4SJMWnPMLpN_lSS1ys14GMJP2YiD8oEEdfih-iaKO8", "name": "Variables Manager"},
+      {"id": "1JngwaRg4WZ5N3aXnFyEW7Ahb4zm-T9YiDLJk-xIwTSw", "name": "Setting - Role"},
+      {"id": "1_Gl7ZhmfXzSoOMjLinZd9TllEJ9tovItXcOWm-RtQrs", "name": "Data"},
+      {"id": "1NLQfzE1dgujzaXRhWQJYFVaCiEsqKQ9LadZ36HiVkSs", "name": "Foundation"},
+      {"id": "12k8oB2Mof-zgU8Ci2OF4E8dXV-KrfnhK2vHeESkY3Ak", "name": "Desktop Component"},
+      {"id": "1KSqn76EOh8mlfXiXIPaWVVjn9b8UuCsaot2JgeGTB6U", "name": "Mobile Component"},
+      {"id": "1PduyNWqDg2O-MhYuPmZYzUWuFv9vlf_uUDI49wcT_dE", "name": "KV Desktop Component UI Kit"}
+      
+    ],
+    "local_data_dir": "./local_data/",
+    "credentials_path": "./credentials.json"
+  }

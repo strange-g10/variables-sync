@@ -1,0 +1,11 @@
+{
+  "name": "Figma Variables Sync",
+  "id": "figma-variables-sync",
+  "api": "1.0.0",
+  "main": "dist/code.js",
+  "ui": "dist/ui.html",
+  "editorType": ["figma", "dev"],
+  "networkAccess": {
+    "allowedDomains": ["https://sheets.googleapis.com"]
+  }
+}

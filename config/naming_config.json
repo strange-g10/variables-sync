@@ -1,0 +1,18 @@
+[
+  {
+    "root_pattern": "Role-Body-\\d+",
+    "type": "tree",
+    "sort_groups": [
+      {"prefix": "Row_\\d+_Text_Col_", "range": {"rows": [1, 10], "cols": [1, 4]}},
+      {"prefix": "Row_\\d+_Visible_Col_", "range": {"rows": [1, 10], "cols": [1, 4]}}
+    ]
+  },
+  {
+    "root_pattern": "Block-\\d+",
+    "type": "tree",
+    "sort_groups": [
+      {"prefix": "Title"},
+      {"prefix": "Item \\d+"}
+    ]
+  }
+]
