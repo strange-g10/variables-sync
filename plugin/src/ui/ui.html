@@ -6,16 +6,51 @@
 <body>
   <div class="tab-container">
     <div class="tab-headers">
-      <button class="tab-header active" data-tab="export">Export</button>
-      <button class="tab-header" data-tab="import">Import</button>
-      <button class="tab-header" data-tab="assign">Assign</button>
+      <button class="tab-header active" data-tab="export" title="Export Variables Collections">Variables</button>
+      <button class="tab-header" data-tab="nodes" title="Export Node IDs from Selection">Nodes</button>
+      <button class="tab-header" data-tab="import" title="Import Variables from Google Sheets">Import</button>
+      <button class="tab-header" data-tab="assign" title="Assign Variables from Sheet Data">Assign</button>
     </div>
     <div class="tab-content" id="tab-content">
       <div id="export-tab" class="tab-pane">
+        <div class="section-header">
+          <h4>📊 Variables Collections</h4>
+          <p class="section-description">Export variables and collections data</p>
+        </div>
         <select id="collection-select"></select>
-        <button id="export-full">Export Full</button>
-        <button id="export-ids">Export IDs</button>
-        <button id="clear-collections">Clear Collections</button>
+        <button id="export-full" title="Export full collection data including values">Export Full</button>
+        <button id="export-ids" title="Export only variable IDs and names">Export IDs</button>
+        <button id="clear-collections" title="Clear all variables collections">Clear Collections</button>
+      </div>
+      <div id="nodes-tab" class="tab-pane">
+        <div class="section-header">
+          <h4>🎯 Node Export</h4>
+          <p class="section-description">Export node IDs from selected Figma objects with configurable patterns</p>
+        </div>
+        <div class="usage-guide">
+          <h5>How to use:</h5>
+          <ol>
+            <li>Select nodes/containers in Figma</li>
+            <li>Click "Export Selected Nodes" below</li>
+            <li>Configure patterns in the modal</li>
+            <li>Download the organized JSON file</li>
+          </ol>
+        </div>
+        <button id="export-selected-nodes" title="Export node IDs from selected objects with pattern-based organization">🚀 Export Selected Nodes</button>
+        <div class="feature-highlights">
+          <div class="highlight-item">
+            <span class="highlight-icon">🎯</span>
+            <span>Pattern-based filtering</span>
+          </div>
+          <div class="highlight-item">
+            <span class="highlight-icon">📋</span>
+            <span>Grid structure support</span>
+          </div>
+          <div class="highlight-item">
+            <span class="highlight-icon">⚡</span>
+            <span>Real-time validation</span>
+          </div>
+        </div>
       </div>
       <div id="import-tab" class="tab-pane">
         <input id="sheet-link" type="text" placeholder="Google Sheet URL">
@@ -32,6 +67,28 @@
         <select id="sheet-select" disabled></select>
         <button id="assign" disabled>Assign Variables</button>
         <button id="force-assign" disabled>Force Assign All</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Node Export Config Modal -->
+  <div id="node-config-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <h3>Configure Node Export</h3>
+      <div class="config-section">
+        <label>Root Pattern (regex):</label>
+        <input type="text" id="root-pattern" placeholder="Role-Body-\\d+|Block-\\d+" />
+      </div>
+      <div class="config-section">
+        <label>Sort Groups:</label>
+        <div id="sort-groups-container">
+          <!-- Dynamic sort groups will be added here -->
+        </div>
+        <button id="add-sort-group">Add Sort Group</button>
+      </div>
+      <div class="modal-buttons">
+        <button id="apply-config">Apply & Export</button>
+        <button id="cancel-config">Cancel</button>
       </div>
     </div>
   </div>

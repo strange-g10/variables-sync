@@ -113,3 +113,263 @@
     height: 100%;
     transition: width 0.3s ease;
   }
+
+  /* Modal styles */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+
+  .modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--background);
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 80%;
+    overflow-y: auto;
+    border: 1px solid var(--form-border);
+  }
+
+  .config-section {
+    margin-bottom: 15px;
+  }
+
+  .config-section label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--accent-color);
+  }
+
+  .config-section input, .config-section select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--form-border);
+    border-radius: 4px;
+    margin-bottom: 5px;
+    background: var(--tab-bg);
+    color: var(--text-color);
+    box-sizing: border-box;
+  }
+
+  .sort-group {
+    border: 1px solid var(--form-border);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    background: var(--tab-bg);
+  }
+
+  .sort-group-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .range-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 5px;
+    margin-top: 5px;
+  }
+
+  .range-inputs input {
+    padding: 4px;
+    font-size: 12px;
+  }
+
+  .modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .modal-buttons button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  #apply-config {
+    background-color: var(--accent-color);
+    color: var(--background);
+  }
+
+  #cancel-config {
+    background-color: var(--form-border);
+    color: var(--text-color);
+  }
+
+  .remove-group {
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 2px 6px;
+    cursor: pointer;
+    font-size: 12px;
+  }
+
+  #add-sort-group {
+    background-color: var(--tab-bg);
+    border: 1px solid var(--form-border);
+    color: var(--text-color);
+  }
+
+  /* Section Headers */
+  .section-header {
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .section-header h4 {
+    margin: 0 0 5px 0;
+    color: var(--accent-color);
+    font-size: 16px;
+  }
+
+  .section-description {
+    margin: 0;
+    font-size: 12px;
+    color: var(--text-color);
+    opacity: 0.8;
+  }
+
+  /* Usage Guide */
+  .usage-guide {
+    background: var(--tab-bg);
+    border: 1px solid var(--form-border);
+    border-radius: 6px;
+    padding: 12px;
+    margin-bottom: 15px;
+  }
+
+  .usage-guide h5 {
+    margin: 0 0 8px 0;
+    color: var(--accent-color);
+    font-size: 13px;
+  }
+
+  .usage-guide ol {
+    margin: 0;
+    padding-left: 16px;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .usage-guide li {
+    margin-bottom: 4px;
+  }
+
+  /* Feature Highlights */
+  .feature-highlights {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--tab-bg);
+    border: 1px solid var(--form-border);
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-size: 11px;
+    color: var(--text-color);
+  }
+
+  .highlight-icon {
+    font-size: 14px;
+  }
+
+  /* Enhanced Button for Node Export */
+  #export-selected-nodes {
+    background: linear-gradient(135deg, var(--accent-color), #0ea00e);
+    color: var(--background);
+    font-weight: bold;
+    font-size: 14px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  #export-selected-nodes:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(16, 194, 16, 0.3);
+  }
+
+  #export-selected-nodes:disabled {
+    background: var(--form-border);
+    color: var(--text-color);
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* Validation Feedback */
+  .validation-feedback {
+    font-size: 12px;
+    margin-top: 4px;
+    padding: 4px;
+    border-radius: 3px;
+  }
+
+  /* Enhanced Modal Title */
+  .modal-content h3 {
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 1px solid var(--form-border);
+    padding-bottom: 10px;
+  }
+
+  /* Selection Status */
+  #selection-status {
+    margin-bottom: 15px;
+  }
+
+  /* Improved form inputs with validation states */
+  input.valid {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 4px rgba(16, 194, 16, 0.2);
+  }
+
+  input.invalid {
+    border-color: #ff4444;
+    box-shadow: 0 0 4px rgba(255, 68, 68, 0.2);
+  }
+
+  /* Tooltip styling */
+  [title] {
+    position: relative;
+  }
+
+  /* Better disabled state for apply button */
+  #apply-config:disabled {
+    background-color: var(--form-border);
+    color: var(--text-color);
+    opacity: 0.5;
+    cursor: not-allowed;
+  }

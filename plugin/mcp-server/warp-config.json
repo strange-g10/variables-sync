@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "figma-variables-sync": {
+      "command": "node",
+      "args": ["dist/index.js"],
+      "cwd": "/Users/trangpham/Documents/variables-sync-main/plugin/mcp-server",
+      "env": {
+        "GOOGLE_SHEETS_API_KEY": "${GOOGLE_SHEETS_API_KEY}",
+        "GOOGLE_CREDENTIALS_PATH": "${GOOGLE_CREDENTIALS_PATH}",
+        "FIGMA_TOKEN": "${FIGMA_TOKEN}",
+        "LOG_LEVEL": "info"
+      },
+      "disabled": false
+    }
+  }
+}

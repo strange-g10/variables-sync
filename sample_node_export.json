@@ -1,0 +1,51 @@
+{
+  "fileName": "Sample_Figma_File",
+  "selectionCount": 2,
+  "roots": {
+    "Role-Body-1": {
+      "type": "tree",
+      "nodes": [
+        {
+          "name": "Row_1_Text_Col_1",
+          "id": "123:456",
+          "type": "TEXT"
+        },
+        {
+          "name": "Row_1_Text_Col_2",
+          "id": "123:457",
+          "type": "TEXT"
+        },
+        {
+          "name": "Row_1_Visible_Col_1",
+          "id": "123:458",
+          "type": "BOOLEAN_OPERATION"
+        },
+        {
+          "name": "Row_2_Text_Col_1",
+          "id": "123:459",
+          "type": "TEXT"
+        }
+      ]
+    },
+    "Block-1": {
+      "type": "tree",
+      "nodes": [
+        {
+          "name": "Title",
+          "id": "123:460",
+          "type": "TEXT"
+        },
+        {
+          "name": "Item 1",
+          "id": "123:461",
+          "type": "FRAME"
+        },
+        {
+          "name": "Item 2",
+          "id": "123:462",
+          "type": "FRAME"
+        }
+      ]
+    }
+  }
+}

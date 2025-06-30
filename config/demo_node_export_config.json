@@ -1,0 +1,75 @@
+{
+  "description": "Demo configuration for Node Export feature",
+  "configs": [
+    {
+      "name": "Tables Configuration",
+      "rootPattern": "Role-Body-\\d+",
+      "sortGroups": [
+        {
+          "prefix": "Row_\\d+_Text_Col_",
+          "range": {
+            "rows": [1, 10],
+            "cols": [1, 4]
+          }
+        },
+        {
+          "prefix": "Row_\\d+_Visible_Col_",
+          "range": {
+            "rows": [1, 10],
+            "cols": [1, 4]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Block Lists Configuration",
+      "rootPattern": "Block-\\d+",
+      "sortGroups": [
+        {
+          "prefix": "Title"
+        },
+        {
+          "prefix": "Item \\d+"
+        }
+      ]
+    },
+    {
+      "name": "Card Components",
+      "rootPattern": "Card-\\d+|Component-\\d+",
+      "sortGroups": [
+        {
+          "prefix": "Header"
+        },
+        {
+          "prefix": "Content"
+        },
+        {
+          "prefix": "Footer"
+        },
+        {
+          "prefix": "Button_\\d+",
+          "range": {
+            "rows": [1, 1],
+            "cols": [1, 3]
+          }
+        }
+      ]
+    }
+  ],
+  "usage": {
+    "instructions": [
+      "1. Select nodes in Figma that contain the structures you want to export",
+      "2. Click 'Export Selected Nodes' button in the plugin",
+      "3. Configure the root pattern (regex) to match parent containers",
+      "4. Configure sort groups to match child elements",
+      "5. Use range option for grid-like structures (tables, button groups)",
+      "6. Click 'Apply & Export' to download the JSON file"
+    ],
+    "examples": {
+      "rootPattern": "Role-Body-\\d+ matches Role-Body-1, Role-Body-2, etc.",
+      "prefix_simple": "Title matches exact 'Title' node names",
+      "prefix_regex": "Item \\d+ matches Item 1, Item 2, Item 3, etc.",
+      "range_usage": "Use range for grid patterns like Row_1_Text_Col_1, Row_1_Text_Col_2, etc."
+    }
+  }
+}

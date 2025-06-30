@@ -1,0 +1,36 @@
+{
+  "fileName": "Test_Figma_File",
+  "selectionCount": 1,
+  "roots": {
+    "Block-1": {
+      "type": "tree",
+      "nodes": [
+        {
+          "name": "Title",
+          "id": "I76:8315;2327:96031",
+          "type": "TEXT"
+        },
+        {
+          "name": "Title",
+          "id": "I76:8315;2327:96031",
+          "type": "TEXT"
+        },
+        {
+          "name": "Title",
+          "id": "I76:8315;2327:96031",
+          "type": "TEXT"
+        },
+        {
+          "name": "Item 1",
+          "id": "I76:8315;2327:96032",
+          "type": "FRAME"
+        },
+        {
+          "name": "Item 2",
+          "id": "I76:8315;2327:96033",
+          "type": "FRAME"
+        }
+      ]
+    }
+  }
+}

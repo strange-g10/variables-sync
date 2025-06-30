@@ -1,6 +1,6 @@
 import { config } from "./config";
 import { importVariables, cancel } from "./features/import";
-import { exportFull, exportIds } from "./features/export";
+import { exportFull, exportIds, exportSelectedNodes } from "./features/export";
 import { assignVariables } from "./features/assign";
 import { clearCollections } from "./features/clear";
 import { getCollections } from "./features/collections";
@@ -44,6 +44,17 @@ figma.ui.onmessage = async (msg: PluginMessage) => {
         break;
       case "export-ids":
         await exportIds(msg.collection);
+        break;
+      case "export-selected-nodes":
+        await exportSelectedNodes(msg.nodeConfig);
+        break;
+      case "check-selection":
+        const selectionCount = figma.currentPage.selection.length;
+        figma.ui.postMessage({ 
+          type: "selection-status", 
+          selectionCount,
+          hasSelection: selectionCount > 0 
+        });
         break;
       case "clear-collections":
         clearCollections();

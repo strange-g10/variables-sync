@@ -21,6 +21,11 @@ export function initializeSectionManager() {
         if (tab === "export") {
           parent.postMessage({ pluginMessage: { type: "get-collections" } }, "*");
         }
+        
+        // Check selection for nodes tab
+        if (tab === "nodes") {
+          parent.postMessage({ pluginMessage: { type: "check-selection" } }, "*");
+        }
       }
     });
   });
