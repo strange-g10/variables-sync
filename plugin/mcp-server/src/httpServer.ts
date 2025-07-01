@@ -5,6 +5,7 @@ import cors from 'cors';
 import { writeFileSync, mkdirSync } from 'fs';
 import { execSync } from 'child_process';
 import path from 'path';
+import jwt from 'jsonwebtoken';
 
 const app = express();
 const PORT = 3000;
@@ -14,17 +15,18 @@ app.use(cors());
 app.use(express.json({ limit: '10mb' }));
 
 // Google Sheets Export endpoint
-app.post('/export-to-sheets', async (req: Request, res: Response) => {
+app.post('/export-to-sheets', async (req: Request, res: Response): Promise<void> => {
   try {
     console.log('Received export request');
     
     const { variables, spreadsheet_id, service_account } = req.body;
     
     if (!variables || !spreadsheet_id || !service_account) {
-      return res.status(400).json({
+      res.status(400).json({
         success: false,
         error: 'Missing required fields: variables, spreadsheet_id, or service_account'
       });
+      return;
     }
 
     // Create temporary directories
@@ -78,6 +80,7 @@ app.post('/export-to-sheets', async (req: Request, res: Response) => {
         message: 'Data exported successfully to Google Sheets',
         details: result
       });
+      return;
       
     } catch (pythonError: any) {
       console.error('Python script error:', pythonError.message);
@@ -89,13 +92,14 @@ app.post('/export-to-sheets', async (req: Request, res: Response) => {
         success: true,
         message: 'Data exported successfully to Google Sheets via direct API'
       });
+      return;
     }
 
     // Clean up temp files
     try {
-      const fs = require('fs');
-      fs.unlinkSync(credentialsPath);
-      fs.unlinkSync(dataPath);
+      const { unlinkSync } = await import('fs');
+      unlinkSync(credentialsPath);
+      unlinkSync(dataPath);
     } catch (cleanupError) {
       console.warn('Failed to clean up temp files:', cleanupError);
     }
@@ -106,6 +110,7 @@ app.post('/export-to-sheets', async (req: Request, res: Response) => {
       success: false,
       error: error.message || 'Internal server error'
     });
+    return;
   }
 });
 
@@ -127,7 +132,6 @@ async function handleDirectAPIExport(variables: any, spreadsheetId: string, serv
 
 // Get access token from service account
 async function getAccessTokenFromServiceAccount(serviceAccount: any): Promise<string> {
-  const jwt = require('jsonwebtoken');
   
   const now = Math.floor(Date.now() / 1000);
   const payload = {

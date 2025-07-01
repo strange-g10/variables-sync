@@ -6,7 +6,12 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/index.js",
+    "start": "./scripts/start.sh",
+    "stop": "./scripts/stop.sh",
+    "restart": "npm stop && npm start",
+    "status": "./scripts/status.sh",
+    "logs": "tail -f server.log 2>/dev/null || echo 'No log file found'",
+    "start:fg": "export $(grep -v '^#' .env | xargs) && node dist/index.js",
     "start:http": "node dist/httpServer.js",
     "dev": "tsc --watch",
     "dev:http": "tsc && node dist/httpServer.js",
