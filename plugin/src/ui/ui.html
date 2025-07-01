@@ -17,10 +17,118 @@
           <h4>📊 Variables Collections</h4>
           <p class="section-description">Export variables and collections data</p>
         </div>
-        <select id="collection-select"></select>
-        <button id="export-full" title="Export full collection data including values">Export Full</button>
-        <button id="export-ids" title="Export only variable IDs and names">Export IDs</button>
-        <button id="clear-collections" title="Clear all variables collections">Clear Collections</button>
+        
+        <!-- Collection Selection -->
+        <div class="form-group">
+          <label for="collection-select">Select Collection:</label>
+          <select id="collection-select"></select>
+        </div>
+        
+        <!-- Export Destination -->
+        <div class="form-group">
+          <label>Export Destination:</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="export-destination" value="json" checked>
+              <span class="radio-label">📄 Download JSON File</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="export-destination" value="sheets">
+              <span class="radio-label">📊 Upload to Google Sheets</span>
+            </label>
+          </div>
+        </div>
+        
+        <!-- Google Sheets Configuration (Hidden by default) -->
+        <div id="sheets-config" class="config-section" style="display: none;">
+          <div class="form-group">
+            <label for="sheets-url">Google Sheets URL:</label>
+            <input type="text" id="sheets-url" placeholder="https://docs.google.com/spreadsheets/d/..." />
+            <div class="input-hint">Paste the URL of your Google Sheets document</div>
+          </div>
+          
+          <div class="form-group">
+            <label>Authentication Method:</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="auth-method" value="api-key" checked>
+                <span class="radio-label">🔑 API Key (Read Only)</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="auth-method" value="service-account">
+                <span class="radio-label">🔐 Service Account (Full Access)</span>
+              </label>
+            </div>
+          </div>
+          
+          <div id="api-key-config" class="auth-config">
+            <div class="form-group">
+              <label for="api-key-input">Google Sheets API Key:</label>
+              <div class="api-key-container">
+                <input type="password" id="api-key-input" placeholder="Enter your API key" />
+                <button type="button" id="toggle-api-key" class="toggle-btn">👁️</button>
+              </div>
+              <div class="input-hint">
+                ⚠️ API Key only supports read operations. Use Service Account for writing.
+              </div>
+            </div>
+          </div>
+          
+          <div id="service-account-config" class="auth-config" style="display: none;">
+            <div class="form-group">
+              <label for="service-account-file">Service Account JSON File:</label>
+              <input type="file" id="service-account-file" accept=".json" />
+              <div class="input-hint">
+                Upload your Google Service Account credentials JSON file
+              </div>
+            </div>
+            <div class="form-group" id="service-account-info" style="display: none;">
+              <div class="service-account-details">
+                <strong>Service Account:</strong> <span id="service-email"></span><br>
+                <strong>Project:</strong> <span id="service-project"></span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <span id="auth-status" class="status-indicator"></span>
+          </div>
+        </div>
+        
+        <!-- Export Options -->
+        <div class="export-options">
+          <button id="export-full" class="export-btn primary" title="Export full collection data including values">
+            <span class="btn-icon">📋</span>
+            Export Full Data
+          </button>
+          <button id="export-ids" class="export-btn secondary" title="Export only variable IDs and names">
+            <span class="btn-icon">🆔</span>
+            Export IDs Only
+          </button>
+        </div>
+        
+        <!-- Advanced Actions -->
+        <div class="advanced-section">
+          <h5>Advanced Actions</h5>
+          <button id="clear-collections" class="danger-btn" title="Clear all variables collections">
+            <span class="btn-icon">🗑️</span>
+            Clear Collections
+          </button>
+        </div>
+        
+        <!-- Export Progress -->
+        <div id="export-progress" class="progress-section" style="display: none;">
+          <div class="progress-header">
+            <span id="progress-status">Preparing export...</span>
+            <button id="cancel-export" class="cancel-btn">Cancel</button>
+          </div>
+          <div class="progress-bar-container">
+            <div id="export-progress-bar" class="progress-bar"></div>
+          </div>
+          <div class="progress-details">
+            <span id="progress-details"></span>
+          </div>
+        </div>
       </div>
       <div id="nodes-tab" class="tab-pane">
         <div class="section-header">

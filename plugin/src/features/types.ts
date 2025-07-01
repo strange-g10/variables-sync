@@ -24,4 +24,9 @@ export interface NodeExportConfig {
     forceBindAll?: boolean;
     excludeSheets?: string[];
     nodeConfig?: NodeExportConfig;
+    config?: {
+      sheetsUrl: string;
+      apiKey?: string;
+      serviceAccount?: string;
+    };
   }

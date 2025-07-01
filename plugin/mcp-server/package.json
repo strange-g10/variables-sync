@@ -7,18 +7,31 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
+    "start:http": "node dist/httpServer.js",
     "dev": "tsc --watch",
+    "dev:http": "tsc && node dist/httpServer.js",
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^0.5.0",
-    "zod": "^3.22.4"
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^20.0.0",
     "typescript": "^5.8.3"
   },
-  "keywords": ["mcp", "figma", "variables", "sync"],
+  "keywords": [
+    "mcp",
+    "figma",
+    "variables",
+    "sync"
+  ],
   "author": "Variables Sync Team",
   "license": "MIT"
 }

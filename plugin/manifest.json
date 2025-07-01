@@ -6,6 +6,13 @@
   "ui": "dist/ui.html",
   "editorType": ["figma", "dev"],
   "networkAccess": {
-    "allowedDomains": ["https://sheets.googleapis.com"]
+    "allowedDomains": [
+      "https://sheets.googleapis.com",
+      "https://oauth2.googleapis.com"
+    ],
+    "devAllowedDomains": [
+      "http://localhost:3000"
+    ],
+    "reasoning": "This plugin needs to connect to Google Sheets API for data export/import functionality and to a local development server for testing during development."
   }
 }
