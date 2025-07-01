@@ -143,6 +143,8 @@ export class SimpleGoogleSheetsExportService {
       // Send data to MCP server endpoint
       const mcpServerUrl = 'http://localhost:3000/export-to-sheets'; // Adjust if needed
       
+      logToUI(`Connecting to MCP server at: ${mcpServerUrl}`);
+      
       const response = await fetch(mcpServerUrl, {
         method: 'POST',
         headers: {
@@ -151,14 +153,28 @@ export class SimpleGoogleSheetsExportService {
         body: JSON.stringify(exportData)
       });
 
+      logToUI(`MCP Server response status: ${response.status}`);
+      
       if (!response.ok) {
         const errorData = await response.text();
+        logToUI(`MCP Server error response: ${errorData}`);
         throw new Error(`MCP Server error: ${response.status} - ${errorData}`);
       }
 
       onProgress?.(90, "Finalizing export...");
       
+      // Check content type before parsing
+      const contentType = response.headers.get('content-type');
+      logToUI(`Response content-type: ${contentType}`);
+      
+      if (!contentType || !contentType.includes('application/json')) {
+        const textResponse = await response.text();
+        logToUI(`Non-JSON response: ${textResponse}`);
+        throw new Error(`Expected JSON response but got: ${contentType}`);
+      }
+      
       const result = await response.json();
+      logToUI(`MCP Server response: ${JSON.stringify(result)}`);
       
       if (!result.success) {
         throw new Error(result.error || 'Unknown error from MCP server');

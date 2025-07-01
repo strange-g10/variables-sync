@@ -7,6 +7,7 @@ import { initializeImportUI } from "./components/importUI";
 import { initializeAssignUI } from "./components/assignUI";
 import { initializeNodeExportUI } from "./components/nodeExportUI";
 import { initializeLogProgressUI } from "./components/logProgressUI";
+import { initializeSheetStylesUI } from "./components/sheetStylesUI";
 import { handleMessages } from "./messageHandler";
 
 function initializeUI() {
@@ -17,6 +18,7 @@ function initializeUI() {
   initializeAssignUI();
   initializeNodeExportUI();
   initializeLogProgressUI();
+  initializeSheetStylesUI();
 }
 
 window.addEventListener("DOMContentLoaded", () => {

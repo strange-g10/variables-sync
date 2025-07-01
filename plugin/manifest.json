@@ -8,7 +8,8 @@
   "networkAccess": {
     "allowedDomains": [
       "https://sheets.googleapis.com",
-      "https://oauth2.googleapis.com"
+      "https://oauth2.googleapis.com",
+      "http://localhost:3000"
     ],
     "devAllowedDomains": [
       "http://localhost:3000"

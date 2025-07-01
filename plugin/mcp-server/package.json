@@ -1,23 +1,29 @@
 {
   "name": "figma-variables-sync-mcp-server",
   "version": "1.0.0",
-  "description": "MCP Server for Figma Variables Sync Plugin",
+  "description": "MCP Server for Figma Variables Sync Plugin - Portable Version",
   "main": "dist/index.js",
   "type": "module",
   "scripts": {
-    "build": "tsc",
-    "start": "node dist/index.js",
-    "start:http": "node dist/httpServer.js",
-    "dev": "tsc --watch",
-    "dev:http": "tsc && node dist/httpServer.js",
-    "clean": "rm -rf dist"
+    "setup": "npm install && npm run build",
+    "build": "./node_modules/.bin/tsc || npx tsc || node ./node_modules/typescript/lib/tsc.js",
+    "start": "npm run build && node dist/index.js",
+    "start:http": "npm run build && node dist/httpServer.js",
+    "dev": "./node_modules/.bin/tsc --watch || npx tsc --watch",
+    "dev:http": "npm run build && node dist/httpServer.js",
+    "clean": "rm -rf dist node_modules",
+    "reinstall": "npm run clean && npm install",
+    "test": "npm run build && node -e \"console.log('Build successful, server ready!')\"",
+    "check": "node --version && npm --version && (./node_modules/.bin/tsc --version || npx tsc --version)"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",
+    "express-rate-limit": "^7.1.5",
     "jsonwebtoken": "^9.0.2",
-    "zod": "^3.23.8"
+    "zod": "^3.23.8",
+    "zod-to-json-schema": "^3.22.5"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
@@ -26,12 +32,26 @@
     "@types/node": "^20.0.0",
     "typescript": "^5.8.3"
   },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
   "keywords": [
     "mcp",
     "figma",
     "variables",
-    "sync"
+    "sync",
+    "portable"
   ],
   "author": "Variables Sync Team",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-username/figma-variables-sync.git",
+    "directory": "plugin/mcp-server"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/figma-variables-sync/issues"
+  },
+  "homepage": "https://github.com/your-username/figma-variables-sync#readme"
 }

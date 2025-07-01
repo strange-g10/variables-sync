@@ -14,17 +14,18 @@ app.use(cors());
 app.use(express.json({ limit: '10mb' }));
 
 // Google Sheets Export endpoint
-app.post('/export-to-sheets', async (req: Request, res: Response) => {
+app.post('/export-to-sheets', async (req: Request, res: Response): Promise<void> => {
   try {
     console.log('Received export request');
     
     const { variables, spreadsheet_id, service_account } = req.body;
     
     if (!variables || !spreadsheet_id || !service_account) {
-      return res.status(400).json({
+      res.status(400).json({
         success: false,
         error: 'Missing required fields: variables, spreadsheet_id, or service_account'
       });
+      return;
     }
 
     // Create temporary directories
@@ -78,6 +79,7 @@ app.post('/export-to-sheets', async (req: Request, res: Response) => {
         message: 'Data exported successfully to Google Sheets',
         details: result
       });
+      return;
       
     } catch (pythonError: any) {
       console.error('Python script error:', pythonError.message);
@@ -89,6 +91,7 @@ app.post('/export-to-sheets', async (req: Request, res: Response) => {
         success: true,
         message: 'Data exported successfully to Google Sheets via direct API'
       });
+      return;
     }
 
     // Clean up temp files
@@ -106,6 +109,7 @@ app.post('/export-to-sheets', async (req: Request, res: Response) => {
       success: false,
       error: error.message || 'Internal server error'
     });
+    return;
   }
 });
 
@@ -214,7 +218,7 @@ async function createOrUpdateSheet(spreadsheetId: string, sheetName: string, she
 }
 
 // Health check endpoint
-app.get('/health', (req: Request, res: Response) => {
+app.get('/health', (req: Request, res: Response): void => {
   res.json({ 
     status: 'healthy',
     timestamp: new Date().toISOString(),

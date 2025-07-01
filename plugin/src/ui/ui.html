@@ -10,6 +10,7 @@
       <button class="tab-header" data-tab="nodes" title="Export Node IDs from Selection">Nodes</button>
       <button class="tab-header" data-tab="import" title="Import Variables from Google Sheets">Import</button>
       <button class="tab-header" data-tab="assign" title="Assign Variables from Sheet Data">Assign</button>
+      <button class="tab-header settings-tab" data-tab="settings" title="Plugin Settings & Configuration">⚙️</button>
     </div>
     <div class="tab-content" id="tab-content">
       <div id="export-tab" class="tab-pane">
@@ -17,6 +18,7 @@
           <h4>📊 Variables Collections</h4>
           <p class="section-description">Export variables and collections data</p>
         </div>
+        
         
         <!-- Collection Selection -->
         <div class="form-group">
@@ -176,6 +178,92 @@
         <button id="assign" disabled>Assign Variables</button>
         <button id="force-assign" disabled>Force Assign All</button>
       </div>
+      
+      <!-- Settings Tab -->
+      <div id="settings-tab" class="tab-pane">
+        <div class="section-header">
+          <h4>⚙️ Plugin Settings</h4>
+          <p class="section-description">Configure plugin behavior and sheet styling</p>
+        </div>
+        
+        <!-- Sheet Styles Configuration -->
+        <div class="config-section">
+          <h5>📊 Sheet Styles Configuration</h5>
+          <p class="section-description">Customize the appearance of exported Google Sheets</p>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="row-height">Row Height:</label>
+              <input type="number" id="row-height" value="30" min="20" max="100" />
+            </div>
+            <div class="form-group">
+              <label for="column-a-width">Column A Width:</label>
+              <input type="number" id="column-a-width" value="150" min="50" max="500" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="column-b-width">Column B Width:</label>
+              <input type="number" id="column-b-width" value="100" min="50" max="500" />
+            </div>
+            <div class="form-group">
+              <label for="mode-column-width">Mode Column Width:</label>
+              <input type="number" id="mode-column-width" value="200" min="50" max="500" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="id-column-width">ID Column Width:</label>
+              <input type="number" id="id-column-width" value="200" min="50" max="500" />
+            </div>
+            <div class="form-group">
+              <label for="key-column-width">Key Column Width:</label>
+              <input type="number" id="key-column-width" value="200" min="50" max="500" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="even-row-color">Even Row Color:</label>
+              <input type="color" id="even-row-color" value="#f0f0f0" />
+            </div>
+            <div class="form-group">
+              <label for="odd-row-color">Odd Row Color:</label>
+              <input type="color" id="odd-row-color" value="#ffffff" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="checkbox-label">
+              <input type="checkbox" id="ellipse" checked />
+              Enable text ellipsis
+            </label>
+          </div>
+          <div class="button-row">
+            <button id="save-styles" class="btn primary">💾 Save Styles</button>
+            <button id="reset-styles" class="btn secondary">🔄 Reset to Default</button>
+          </div>
+        </div>
+        
+        <!-- Log Section -->
+        <div class="config-section">
+          <h5>📋 Activity Log</h5>
+          <p class="section-description">View plugin activity and debug information</p>
+          <div class="button-row">
+            <button id="toggle-log" class="btn secondary">👁️ Show/Hide Log</button>
+            <button id="export-log" class="btn secondary">📤 Export Log</button>
+            <button id="clear-log" class="btn danger-btn">🗑️ Clear Log</button>
+          </div>
+          <textarea id="log" readonly style="display: none; margin-top: 10px; width: 100%; height: 200px;"></textarea>
+        </div>
+        
+        <!-- Plugin Information -->
+        <div class="config-section">
+          <h5>ℹ️ About</h5>
+          <div class="about-info">
+            <p><strong>Variables Sync Plugin</strong></p>
+            <p>Version: 1.0.0</p>
+            <p>Export and import Figma variables to/from Google Sheets</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   
@@ -199,15 +287,6 @@
         <button id="cancel-config">Cancel</button>
       </div>
     </div>
-  </div>
-  <button id="toggle-log">Show Log</button>
-  <button id="export-log">Export Log</button>
-  <textarea id="log" readonly></textarea>
-  <div id="progress">
-    <div id="progress-bar-container">
-      <div id="progress-bar"></div>
-    </div>
-    <span id="progress-text"></span>
   </div>
   <script src="./ui.js"></script>
   <script>console.log("Inline script loaded");</script>

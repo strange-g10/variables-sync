@@ -194,6 +194,42 @@ figma.ui.onmessage = async (msg: PluginMessage) => {
         // Handle export cancellation
         logToUI("Export cancelled by user");
         break;
+      case "get-sheet-styles-config":
+        // Load current sheet styles configuration
+        try {
+          const savedConfig = await figma.clientStorage.getAsync("sheet-styles-config");
+          const defaultConfig = {
+            variables: {
+              row_height: 30,
+              column_a_width: 150,
+              column_b_width: 100,
+              mode_column_width: 200,
+              id_column_width: 200,
+              key_column_width: 200,
+              even_row_color: [240, 240, 240] as [number, number, number],
+              odd_row_color: [255, 255, 255] as [number, number, number],
+              ellipse: true
+            }
+          };
+          const config = savedConfig || defaultConfig;
+          figma.ui.postMessage({ type: "sheet-styles-config-loaded", config });
+        } catch (error) {
+          logToUI(`Error loading sheet styles config: ${error}`);
+        }
+        break;
+      case "save-sheet-styles-config":
+        // Save sheet styles configuration
+        try {
+          const configToSave = {
+            variables: msg.sheetStylesConfig
+          };
+          await figma.clientStorage.setAsync("sheet-styles-config", configToSave);
+          figma.ui.postMessage({ type: "sheet-styles-config-saved" });
+          logToUI("Sheet styles configuration saved successfully");
+        } catch (error) {
+          logToUI(`Error saving sheet styles config: ${error}`);
+        }
+        break;
       default:
         logToUI(`Unknown message type: ${msg.type}`);
     }

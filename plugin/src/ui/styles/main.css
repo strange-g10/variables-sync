@@ -95,6 +95,23 @@
     resize: none;
   }
   
+  .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .form-group {
+    flex: 1 1 45%;
+    margin-bottom: 10px;
+  }
+
+  .button-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
   #progress {
     margin-top: 10px;
   }
@@ -365,13 +382,57 @@
   [title] {
     position: relative;
   }
-
-  /* Better disabled state for apply button */
+  /* Improved disabled state for apply button */
   #apply-config:disabled {
     background-color: var(--form-border);
     color: var(--text-color);
     opacity: 0.5;
     cursor: not-allowed;
+  }
+
+  /* Settings Tab Styling */
+  .settings-tab {
+    font-size: 18px;
+    min-width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-info {
+    background: var(--tab-bg);
+    border: 1px solid var(--form-border);
+    border-radius: 6px;
+    padding: 12px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .about-info p {
+    margin: 4px 0;
+  }
+
+  .about-info strong {
+    color: var(--accent-color);
+  }
+
+  /* Log styling in settings */
+  #settings-tab #log {
+    font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+    font-size: 11px;
+    background: var(--log-background);
+    border: 1px solid var(--form-border);
+    border-radius: 4px;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+
+  /* Hide duplicate log elements outside settings */
+  body > #toggle-log,
+  body > #export-log,
+  body > #log,
+  body > #progress {
+    display: none !important;
   }
 
   /* Enhanced Export UI Styles */
